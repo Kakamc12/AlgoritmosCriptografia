@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Laboratório de cifras</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header class="topo">
+    <h1>Laboratório de cifras</h1>
+    <p>Escolha uma cifra, preencha os campos e veja o resultado.</p>
+  </header>
+
+  <main class="lab">
+    <nav id="lista-cifras" class="lista-cifras" aria-label="Cifras"></nav>
+
+    <section class="bancada" aria-labelledby="nome-cifra">
+      <h2 id="nome-cifra"></h2>
+      <p id="descricao-cifra" class="descricao"></p>
+
+      <div id="operacoes" class="operacoes" role="radiogroup" aria-label="Operação"></div>
+
+      <form id="formulario" novalidate>
+        <div id="campos" class="campos"></div>
+        <button type="submit" id="botao-executar" class="botao-principal"></button>
+        <span class="atalho">Ctrl + Enter também executa</span>
+      </form>
+
+      <section class="saida" aria-labelledby="titulo-saida">
+        <div class="saida-topo">
+          <h3 id="titulo-saida">Resultado</h3>
+          <div class="saida-acoes">
+            <button type="button" id="botao-usar" class="botao-leve" hidden>Usar como entrada</button>
+            <button type="button" id="botao-copiar" class="botao-leve" hidden>Copiar</button>
+          </div>
+        </div>
+        <pre id="saida" class="saida-texto vazio" aria-live="polite">O resultado aparece aqui.</pre>
+      </section>
+    </section>
+  </main>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
